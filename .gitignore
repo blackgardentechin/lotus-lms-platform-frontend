@@ -1,0 +1,23 @@
+# Flutter/Dart build artifacts
+
+# Standard Flutter artifacts
+# Uncomment the below line to include these artifacts:
+# .dart_tool/
+# build/
+# .metadata
+# .packages
+
+# Excluded from version control
+.env
+build/
+.dart_tool/
+pubspec.lock
+
+# Flutter dependency files
+*.jks
+*.keystore
+*.iml
+
+# Others
+.idea/
+.vscode/
