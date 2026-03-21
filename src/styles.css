@@ -1,0 +1,402 @@
+/* 🌈 GLOBAL BASE */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #0077b6, #0096c7);
+  margin: 0;
+  height: 100vh;
+  color: #222;
+}
+
+/* 🧭 LOGIN & SIGNUP PAGES */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.login-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 340px;
+  text-align: center;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+input,
+select {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #0077b6;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+  background: #005f8a;
+}
+
+/* 🌐 GOOGLE LOGIN BUTTON */
+.google-btn {
+  background: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.divider {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #777;
+}
+
+/* ⚠️ ERROR BANNER */
+.error-banner {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #ff5252;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  z-index: 1000;
+}
+
+/* 🏠 DASHBOARD */
+.dashboard {
+  text-align: center;
+  margin-top: 100px;
+  padding-bottom: 3rem;
+}
+
+.card {
+  background: white;
+  display: inline-block;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.button-group button {
+  flex: 1;
+  max-width: 150px;
+}
+
+/* My Courses Button */
+.my-courses-btn {
+  background: #28a745;
+}
+
+.my-courses-btn:hover {
+  background: #218838;
+}
+
+/* 📚 COURSES SECTION */
+.courses-section {
+  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  max-width: 1000px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.courses-section h3 {
+  margin-bottom: 1rem;
+  color: #005f8a;
+}
+
+/* 🧩 COURSE GRID */
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* 🧠 COURSE CARD */
+.course-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 260px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+  text-align: left;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.course-card h4 {
+  margin: 0;
+  color: #0077b6;
+}
+
+.course-card p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+/* 🧾 EMPTY / ERROR STATES */
+.courses-section p {
+  color: #333;
+  font-size: 15px;
+}
+
+.courses-section .error {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+/* 🔘 BUTTONS INSIDE CARDS */
+.course-card button {
+  margin-top: 10px;
+  width: auto;
+  background: #0096c7;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.course-card button:hover {
+  background: #0077b6;
+}
+
+.courses-section {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.course-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 20px auto;
+  max-width: 900px;
+}
+
+.course-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  text-align: left;
+  transition: transform 0.2s ease-in-out;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+}
+
+.buy-btn {
+  background: #f37254;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 600;
+}
+
+.buy-btn:hover {
+  background: #d65b3a;
+}
+
+.free-btn {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 600;
+}
+
+.error-text {
+  color: red;
+  margin-top: 10px;
+}
+
+.courses-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 20px;
+}
+
+.course-card {
+  background: white;
+  width: 260px;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.course-card h4 {
+  margin-bottom: 10px;
+  color: #0077b6;
+}
+
+.course-card p {
+  font-size: 14px;
+  color: #444;
+}
+
+.buy-btn {
+  margin-top: 10px;
+  background: #00b894;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.buy-btn:hover {
+  background: #009e7e;
+}
+
+.payment-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.payment-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  width: 360px;
+}
+
+.cancel-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 15px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.cancel-btn:hover {
+  background: #c0392b;
+}
+
+/* Add to existing styles.css */
+
+/* Payment related styles */
+.payment-error {
+  color: #d32f2f;
+  background-color: #ffebee;
+  padding: 12px;
+  border-radius: 4px;
+  margin: 10px 0;
+  border-left: 4px solid #d32f2f;
+}
+
+.payment-success {
+  color: #388e3c;
+  background-color: #e8f5e9;
+  padding: 12px;
+  border-radius: 4px;
+  margin: 10px 0;
+  border-left: 4px solid #388e3c;
+}
+
+/* Enhanced button styles */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed !important;
+}
+
+.enroll-button {
+  background: #28a745;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.enroll-button:hover:not(:disabled) {
+  background: #218838;
+}
+
+.enroll-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* Form helper text and states */
+.form-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.success-text {
+  color: green;
+}
+
+.back-btn {
+  margin-top: 10px;
+  background: #6c757d;
+}
+
+.back-btn:hover {
+  background: #545b62;
+}

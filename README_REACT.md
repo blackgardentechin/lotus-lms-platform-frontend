@@ -5,21 +5,6 @@
 [![Flutter](https://img.shields.io/badge/Flutter-3.0+-blue.svg)](https://flutter.dev/)
 [![Dart](https://img.shields.io/badge/Dart-3.0+-blue.svg)](https://dart.dev/)
 
----
-
-## 🔄 Migration Notice
-
-**This project has been migrated from React to Flutter!**
-
-- ✅ **All features preserved** and improved
-- 🚀 **New platforms supported**: iOS, Android, Desktop
-- 📱 **Better performance** with native compilation
-- 📚 **See**: [MIGRATION_GUIDE.md](MIGRATION_GUIDE.md) for details
-- 🔙 **Rollback**: React code available in branch `backup/react-original`
-- 📝 **Changelog**: [CHANGELOG.md](CHANGELOG.md)
-
----
-
 ## 🌟 Overview
 
 Lotus LMS is a modern, cross-platform learning management system built with Flutter. It supports Web, iOS, Android, Windows, macOS, and Linux platforms from a single codebase.
@@ -84,17 +69,17 @@ Lotus LMS is a modern, cross-platform learning management system built with Flut
 
 #### Web
 ```bash
-flutter run -d chrome
+flutter run -d chrome --dart-define-from-file=.env
 ```
 
 #### Android
 ```bash
-flutter run -d android
+flutter run -d android --dart-define-from-file=.env
 ```
 
 #### iOS (macOS required)
 ```bash
-flutter run -d ios
+flutter run -d ios --dart-define-from-file=.env
 ```
 
 #### Desktop
@@ -113,19 +98,19 @@ flutter run -d linux
 
 #### Web
 ```bash
-flutter build web --release
+flutter build web --release --dart-define-from-file=.env
 ```
 Output: `build/web/`
 
 #### Android APK
 ```bash
-flutter build apk --release
+flutter build apk --release --dart-define-from-file=.env
 ```
 Output: `build/app/outputs/flutter-apk/app-release.apk`
 
 #### iOS (requires Apple Developer account)
 ```bash
-flutter build ios --release
+flutter build ios --release --dart-define-from-file=.env
 ```
 
 #### Desktop
@@ -154,8 +139,21 @@ lib/
 │       └── app_colors.dart      # Color scheme
 ├── features/
 │   ├── auth/                    # Authentication feature
+│   │   ├── data/
+│   │   │   ├── datasources/
+│   │   │   ├── models/
+│   │   │   └── repositories/
+│   │   ├── domain/
+│   │   │   ├── entities/
+│   │   │   └── repositories/
+│   │   ├── presentation/
+│   │   │   ├── pages/
+│   │   │   └── widgets/
+│   │   └── providers/
 │   ├── courses/                 # Courses feature
+│   │   └── ... (similar structure)
 │   └── payment/                 # Payment feature
+│       └── ... (similar structure)
 ├── core/
 │   ├── api/                     # API client setup
 │   ├── config/                  # Configuration
@@ -167,13 +165,21 @@ lib/
 
 ## 🏗️ Architecture
 
-This project follows **Clean Architecture** principles with:
+This project follows **Clean Architecture** principles:
 
 - **Presentation Layer**: UI components (Pages, Widgets)
 - **Domain Layer**: Business logic and entities
 - **Data Layer**: Data sources, models, and repositories
 
+### State Management
+
+- **Riverpod**: Used for dependency injection and state management
+- **Freezed**: Immutable state classes with unions
+- **GoRouter**: Declarative routing
+
 ## 🔑 Key Technologies
+
+### Dependencies
 
 - `flutter_riverpod`: State management
 - `amazon_cognito_identity_dart_2`: AWS Cognito authentication
@@ -183,6 +189,33 @@ This project follows **Clean Architecture** principles with:
 - `go_router`: Navigation and routing
 - `flutter_dotenv`: Environment configuration
 - `google_fonts`: Custom typography (Poppins)
+- `shared_preferences` & `flutter_secure_storage`: Data persistence
+
+## 🔐 Authentication
+
+### Email/Password Login
+- AWS Cognito User Pool authentication
+- JWT token storage in secure storage
+- Automatic session management
+
+### Google OAuth
+- Federated identity through AWS Cognito
+- Hosted UI flow
+- Token exchange and validation
+
+### Multi-Tenant Support
+- Automatic tenant mapping from backend API
+- Tenant ID header injection for all API calls
+- Username persistence across sessions
+
+## 💳 Payment Integration
+
+### Razorpay Checkout
+- Order creation via backend API
+- Secure payment processing
+- Transaction status tracking
+- Success/failure callbacks
+- Free course enrollment (skip payment)
 
 ## 🧪 Testing
 
@@ -198,7 +231,12 @@ flutter test --coverage
 
 ## 📝 Code Generation
 
-Generate code for JSON serialization and state classes:
+The project uses code generation for:
+- JSON serialization (`json_serializable`)
+- Immutable state classes (`freezed`)
+- API clients (`retrofit`)
+
+Generate code:
 ```bash
 flutter pub run build_runner build --delete-conflicting-outputs
 ```
@@ -218,24 +256,26 @@ The app uses Material Design 3 with a custom color scheme:
 - **Error**: `#ff5252` (Red)
 - **Font**: Poppins (Google Fonts)
 
-## 🚀 Deployment
+## 🔄 Migration from React
 
-The application is automatically deployed to AWS S3 and CloudFront on every push to the `main` branch.
+This Flutter version replaces the previous React implementation. Key improvements:
 
-- **Production URL**: [https://dodyqtcfhwoe.cloudfront.net](https://dodyqtcfhwoe.cloudfront.net)
-- **Deployment Guide**: See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed setup instructions
-- **CI/CD**: GitHub Actions workflow handles build, test, and deployment
+- **Multi-platform support** (not just web)
+- **Better performance** with native compilation
+- **Improved offline capabilities**
+- **Type-safe code** with Dart
+- **Cleaner architecture** with Clean Architecture pattern
 
-### Quick Setup
+### Rollback Instructions
 
-To enable automatic deployments, configure these GitHub secrets:
-- `AWS_ACCESS_KEY_ID` - AWS credentials
-- `AWS_SECRET_ACCESS_KEY` - AWS credentials
-- `CLOUDFRONT_DISTRIBUTION_ID` - CloudFront distribution ID
-- `API_BASE_URL` - Backend API URL
-- `RAZORPAY_KEY_ID` - Payment gateway key
+If you need to revert to the React version:
 
-See [DEPLOYMENT.md](DEPLOYMENT.md) for complete instructions.
+```bash
+# The React code is still available in the repository
+# You can restore it from Git history if needed
+git log --oneline  # Find the commit before Flutter migration
+git checkout <commit-hash>
+```
 
 ## 📄 License
 
@@ -248,3 +288,10 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## 📞 Support
 
 For support, please contact support@lotuslms.com or open an issue in the repository.
+
+## 🙏 Acknowledgments
+
+- Flutter team for the amazing framework
+- AWS Cognito for authentication
+- Razorpay for payment processing
+- All contributors to the open-source packages used

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clearing session...</title>
+  <script>
+    const url = new URL(window.location.href);
+    const logoutUrl = url.searchParams.get("logout_url");
+    localStorage.clear();
+    sessionStorage.clear();
+    if (logoutUrl) window.location.replace(logoutUrl);
+  </script>
+</head>
+<body>
+  <p>Logging out securely...</p>
+</body>
+</html>
