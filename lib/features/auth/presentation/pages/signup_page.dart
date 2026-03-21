@@ -89,7 +89,8 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                               const SizedBox(height: 16),
                               Text(
                                 'Create Account',
-                                style: Theme.of(context).textTheme.headlineMedium,
+                                style:
+                                    Theme.of(context).textTheme.headlineMedium,
                                 textAlign: TextAlign.center,
                               ),
                               const SizedBox(height: 8),
@@ -98,11 +99,11 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium
-                                    ?.copyWith(color: AppColors.textSecondary),
+                                    ?.copyWith(
+                                        color: AppColors.textSecondary),
                                 textAlign: TextAlign.center,
                               ),
                               const SizedBox(height: 32),
-
                               CustomTextField(
                                 label: 'Email',
                                 hint: 'you@example.com',
@@ -120,10 +121,9 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                                 },
                               ),
                               const SizedBox(height: 16),
-
                               CustomTextField(
                                 label: 'Password',
-                                hint: '••••••••',
+                                hint: '........',
                                 controller: _passwordController,
                                 obscureText: _obscurePassword,
                                 prefixIcon: const Icon(Icons.lock_outlined),
@@ -134,7 +134,8 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                                         : Icons.visibility,
                                   ),
                                   onPressed: () => setState(
-                                    () => _obscurePassword = !_obscurePassword,
+                                    () =>
+                                        _obscurePassword = !_obscurePassword,
                                   ),
                                 ),
                                 validator: (v) {
@@ -154,10 +155,9 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                                 },
                               ),
                               const SizedBox(height: 16),
-
                               CustomTextField(
                                 label: 'Confirm Password',
-                                hint: '••••••••',
+                                hint: '........',
                                 controller: _confirmPasswordController,
                                 obscureText: _obscureConfirm,
                                 prefixIcon: const Icon(Icons.lock_outlined),
@@ -179,20 +179,19 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                                 },
                               ),
                               const SizedBox(height: 24),
-
                               CustomButton(
                                 text: 'Create Account',
                                 isLoading: isLoading,
                                 onPressed: isLoading ? null : _handleSignUp,
                               ),
                               const SizedBox(height: 24),
-
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
                                     'Already have an account? ',
-                                    style: Theme.of(context).textTheme.bodyMedium,
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
                                   TextButton(
                                     onPressed: () => context.go('/'),

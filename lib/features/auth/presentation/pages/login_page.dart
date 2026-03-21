@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -40,14 +39,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   void _handleGoogleSignIn() {
     ref.read(authProvider.notifier).signInWithGoogle();
   }
-=======
-import 'signup_page.dart';
->>>>>>> ceae05f143941d05d315ecafa8eefd49df924f1c
 
-class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     final authState = ref.watch(authProvider);
     final isLoading = authState.status == AuthStatus.loading;
 
@@ -85,7 +79,11 @@ class LoginPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        const Icon(Icons.school, size: 64, color: AppColors.primary),
+                        const Icon(
+                          Icons.school,
+                          size: 64,
+                          color: AppColors.primary,
+                        ),
                         const SizedBox(height: 16),
                         Text(
                           'Welcome Back',
@@ -102,7 +100,6 @@ class LoginPage extends StatelessWidget {
                           textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 32),
-
                         CustomTextField(
                           label: 'Email',
                           hint: 'you@example.com',
@@ -110,16 +107,19 @@ class LoginPage extends StatelessWidget {
                           keyboardType: TextInputType.emailAddress,
                           prefixIcon: const Icon(Icons.email_outlined),
                           validator: (v) {
-                            if (v == null || v.isEmpty) return 'Email is required';
-                            if (!v.contains('@')) return 'Enter a valid email';
+                            if (v == null || v.isEmpty) {
+                              return 'Email is required';
+                            }
+                            if (!v.contains('@')) {
+                              return 'Enter a valid email';
+                            }
                             return null;
                           },
                         ),
                         const SizedBox(height: 16),
-
                         CustomTextField(
                           label: 'Password',
-                          hint: '••••••••',
+                          hint: '........',
                           controller: _passwordController,
                           obscureText: _obscurePassword,
                           prefixIcon: const Icon(Icons.lock_outlined),
@@ -129,11 +129,14 @@ class LoginPage extends StatelessWidget {
                                   ? Icons.visibility_off
                                   : Icons.visibility,
                             ),
-                            onPressed: () =>
-                                setState(() => _obscurePassword = !_obscurePassword),
+                            onPressed: () => setState(
+                              () => _obscurePassword = !_obscurePassword,
+                            ),
                           ),
                           validator: (v) {
-                            if (v == null || v.isEmpty) return 'Password is required';
+                            if (v == null || v.isEmpty) {
+                              return 'Password is required';
+                            }
                             if (v.length < 8) {
                               return 'Password must be at least 8 characters';
                             }
@@ -141,19 +144,18 @@ class LoginPage extends StatelessWidget {
                           },
                         ),
                         const SizedBox(height: 24),
-
                         CustomButton(
                           text: 'Sign In',
                           isLoading: isLoading,
                           onPressed: isLoading ? null : _handleLogin,
                         ),
                         const SizedBox(height: 16),
-
                         Row(
                           children: [
                             const Expanded(child: Divider()),
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 12),
                               child: Text(
                                 'OR',
                                 style: Theme.of(context).textTheme.bodySmall,
@@ -163,7 +165,6 @@ class LoginPage extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: 16),
-
                         CustomButton(
                           text: 'Continue with Google',
                           icon: Icons.g_mobiledata,
@@ -172,7 +173,6 @@ class LoginPage extends StatelessWidget {
                           onPressed: isLoading ? null : _handleGoogleSignIn,
                         ),
                         const SizedBox(height: 24),
-
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -198,34 +198,6 @@ class LoginPage extends StatelessWidget {
               ),
             ),
           ),
-=======
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Login'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('Login to your account'),
-            ElevatedButton(
-              onPressed: () {
-                // Implement login functionality
-              },
-              child: Text('Login'),
-            ),
-            TextButton(
-              onPressed: () {
-                // Navigate to signup page
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SignupPage()),
-                );
-              },
-              child: Text('Sign Up'),
-            ),
-          ],
->>>>>>> ceae05f143941d05d315ecafa8eefd49df924f1c
         ),
       ),
     );

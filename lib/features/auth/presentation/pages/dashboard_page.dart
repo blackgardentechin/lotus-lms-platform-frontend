@@ -24,7 +24,6 @@ class DashboardPage extends ConsumerWidget {
               padding: const EdgeInsets.all(24),
               child: Column(
                 children: [
-                  // Welcome card
                   Card(
                     elevation: 8,
                     shape: RoundedRectangleBorder(
@@ -48,7 +47,7 @@ class DashboardPage extends ConsumerWidget {
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            'Welcome, $displayName 🎉',
+                            'Welcome, $displayName',
                             style: Theme.of(context).textTheme.titleLarge,
                             textAlign: TextAlign.center,
                           ),
@@ -83,9 +82,7 @@ class DashboardPage extends ConsumerWidget {
                                 child: CustomButton(
                                   text: 'My Courses',
                                   backgroundColor: AppColors.success,
-                                  onPressed: () {
-                                    // TODO: Navigate to my courses
-                                  },
+                                  onPressed: () {},
                                 ),
                               ),
                               const SizedBox(width: 16),
@@ -108,8 +105,6 @@ class DashboardPage extends ConsumerWidget {
                     ),
                   ),
                   const SizedBox(height: 32),
-
-                  // Courses card
                   Card(
                     elevation: 8,
                     shape: RoundedRectangleBorder(
@@ -123,7 +118,7 @@ class DashboardPage extends ConsumerWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '📚 Available Courses',
+                            'Available Courses',
                             style: Theme.of(context)
                                 .textTheme
                                 .headlineMedium
@@ -133,7 +128,8 @@ class DashboardPage extends ConsumerWidget {
                           const Center(
                             child: Text(
                               'No courses available yet.',
-                              style: TextStyle(color: AppColors.textSecondary),
+                              style:
+                                  TextStyle(color: AppColors.textSecondary),
                             ),
                           ),
                         ],

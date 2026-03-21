@@ -5,11 +5,6 @@ import '../../../../app/theme/app_colors.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/auth_state.dart';
 
-/// Handles the OAuth redirect from Cognito Hosted UI.
-/// 
-/// The router passes the `code` query parameter here after Google login.
-/// This page exchanges the code for tokens, then the router automatically
-/// redirects to /dashboard once auth state becomes [AuthStatus.authenticated].
 class AuthCallbackPage extends ConsumerStatefulWidget {
   final String code;
 
@@ -69,7 +64,6 @@ class _AuthCallbackPageState extends ConsumerState<AuthCallbackPage> {
       );
     }
 
-    // Loading or authenticated (router will redirect on authenticated)
     return const Column(
       mainAxisSize: MainAxisSize.min,
       children: [
